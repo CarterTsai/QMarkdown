@@ -24,77 +24,77 @@
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
       <item>
-       <widget class="QToolButton" name="toolButton_2">
+       <widget class="QToolButton" name="iH1">
         <property name="text">
          <string>H1</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_12">
+       <widget class="QToolButton" name="iH2">
         <property name="text">
          <string>H2</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_11">
+       <widget class="QToolButton" name="iH3">
         <property name="text">
          <string>H3</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_10">
+       <widget class="QToolButton" name="iH4">
         <property name="text">
          <string>H4</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_9">
+       <widget class="QToolButton" name="iH5">
         <property name="text">
          <string>H5</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_8">
+       <widget class="QToolButton" name="iH6">
         <property name="text">
          <string>H6</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_7">
+       <widget class="QToolButton" name="iTitle">
         <property name="text">
          <string>Title</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_6">
+       <widget class="QToolButton" name="iCode">
         <property name="text">
          <string>Code</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_5">
+       <widget class="QToolButton" name="iCodeBlock">
         <property name="text">
          <string>Code Block</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_4">
+       <widget class="QToolButton" name="iImage">
         <property name="text">
          <string>Image</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_3">
+       <widget class="QToolButton" name="iLink">
         <property name="text">
          <string>Link</string>
         </property>
@@ -113,7 +113,7 @@
      </layout>
     </item>
     <item row="1" column="0">
-     <widget class="QTextBrowser" name="textBrowser">
+     <widget class="QTextBrowser" name="editor">
       <property name="readOnly">
        <bool>false</bool>
       </property>
@@ -127,7 +127,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QTextBrowser" name="textBrowser_2">
+     <widget class="QTextBrowser" name="markdown_viewer">
       <property name="readOnly">
        <bool>true</bool>
       </property>
