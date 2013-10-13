@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QString>
 #include <QToolButton>
+#include <QProcess>
 
 namespace Ui {
 class MainWindow;

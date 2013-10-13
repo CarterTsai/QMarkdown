@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSignalMapper>
 
@@ -108,12 +108,28 @@ int MainWindow::iInsert(int i)
 int MainWindow::convert()
 {
     Ui_MainWindow *ui = this->ui;
-    //
+
+    // Convert README.md to HTML
+    QString program = "/home/ham/document/QT/MarkdownEditor/MarkdownEditor/mkd2html";
+    QStringList arguments;
+    QProcess *myProcess = new QProcess();
+    // Setting args
+    arguments << "/home/ham/document/QT/MarkdownEditor/MarkdownEditor/README.md";
+    // Exec
+    myProcess->start(program, arguments);
+    // Wait finish
+    myProcess->waitForFinished();
+    // Get info
+    QString p_stdout = myProcess->readAllStandardOutput();
+    QString p_stderr = myProcess->readAllStandardError();
+
+    qDebug() << "state: " << p_stdout;
+    qDebug() << "error: " << p_stdout;
 
     // reload markdown
-    ui->markdown_viewer->setText(ui->editor->toPlainText());
+    //ui->markdown_viewer->clear();
+    ui->markdown_viewer->setHtml(p_stdout);
 
-    //ui->markdown_viewer->reload();
 
     return 0;
 }

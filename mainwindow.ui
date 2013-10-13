@@ -136,7 +136,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="source">
        <url>
-        <string>file:///home/ham/document/QT/MarkdownEditor/MarkdownEditor/index.html</string>
+        <string>file:///home/ham/document/QT/MarkdownEditor/MarkdownEditor/README.html</string>
        </url>
       </property>
       <property name="searchPaths">
