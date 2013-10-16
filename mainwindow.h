@@ -7,6 +7,11 @@
 #include <QString>
 #include <QToolButton>
 #include <QProcess>
+#include <QFile>
+#include <QByteArray>
+#include <QTextStream>
+#include <QIODevice>
+#include <QStringList>
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +33,8 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+    QByteArray md_data;
+    QFile md_file;
 
 };
 

@@ -48,10 +48,21 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->editor, &QTextBrowser::textChanged,
             this, &MainWindow::convert);
 
+    // open Readme.md
+    md_file.setFileName("/home/ham/document/QT/MarkdownEditor/MarkdownEditor/README.md");
+    if (md_file.open(QFile::ReadWrite| QFile::Text))
+    {
+        md_data = md_file.readAll();
+
+        ui->editor->setPlainText(QString(md_data));
+    }
+    md_file.close();
+
 }
 
 MainWindow::~MainWindow()
 {
+    md_file.close();
     delete ui;
 }
 
@@ -108,27 +119,34 @@ int MainWindow::iInsert(int i)
 int MainWindow::convert()
 {
     Ui_MainWindow *ui = this->ui;
+    QProcess *myProcess = new QProcess();
 
     // Convert README.md to HTML
     QString program = "/home/ham/document/QT/MarkdownEditor/MarkdownEditor/mkd2html";
     QStringList arguments;
-    QProcess *myProcess = new QProcess();
+
+    // write editor content to README.md
+    QString utf8_data = ui->editor->toPlainText();
+    QByteArray byteArray=utf8_data.toLocal8Bit ();
+    char *c=byteArray.data();
+
     // Setting args
-    arguments << "/home/ham/document/QT/MarkdownEditor/MarkdownEditor/README.md";
+
+    arguments << QStringList();
     // Exec
     myProcess->start(program, arguments);
-    // Wait finish
-    myProcess->waitForFinished();
-    // Get info
-    QString p_stdout = myProcess->readAllStandardOutput();
-    QString p_stderr = myProcess->readAllStandardError();
+    if (!myProcess->waitForStarted())
+            return false;
 
-    qDebug() << "state: " << p_stdout;
-    qDebug() << "error: " << p_stdout;
+    myProcess->write(c);
+    myProcess->closeWriteChannel();
 
-    // reload markdown
-    //ui->markdown_viewer->clear();
-    ui->markdown_viewer->setHtml(p_stdout);
+    if (!myProcess->waitForFinished())
+            return false;
+    QByteArray result = myProcess->readAll();
+
+    qDebug() << result;
+    ui->markdown_viewer->setHtml(result);
 
 
     return 0;
